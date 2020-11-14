@@ -1,10 +1,6 @@
-# https://sourceforge.net/projects/ezwinports/files/
-# https://sourceforge.net/projects/ezwinports/files/make-4.3-without-guile-w32-bin.zip/download
-
 TARGET_MCU = "stm32/f0 stm32/l1 stm32/f4 stm32/f3"
 OPTIMIZE = -Os
 LIBOPENCM3 = lib/libopencm3
-TAG_VER = v0.8.0
 
 MODELS := stm32f0discovery stm32f3discovery nucleo_f411re nucleo_l152re
 
