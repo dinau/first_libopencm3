@@ -1,0 +1,10 @@
+@echo off
+set vPy=386
+set path=D:\gvim\vim80-kaoriya-win32
+set path=%path%;D:\Git\bin
+set path=%path%;D:\Git\usr\bin
+set path=%path%;D:\Python%vPy%
+set path=%path%;D:\Python%vPy%\Scripts
+set path=%path%;C:\arm-gcc\bin
+set path=%path%;C:\make\bin
+echo %path%
