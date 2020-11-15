@@ -23,6 +23,8 @@ cleanall:
 	$(MAKE) -C ../.. clean
 
 # Write to Flash
+
+#ST_PROGM_CLI_EXE=/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI
 ST_PROGM_CLI_EXE = "d:/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe"
 DEV_INFO = $(shell $(ST_PROGM_CLI_EXE) -c port=SWD | grep -i "device name")
 
