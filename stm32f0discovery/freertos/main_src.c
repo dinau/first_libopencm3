@@ -24,6 +24,7 @@ void softpwm_tsk(void *pvParameters ) {
 
     while(1){
         SoftPwm_exec(&pwm1,2);
+        SoftPwm_exec(&pwm2,4);
     }
 }
 
