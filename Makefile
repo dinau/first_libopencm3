@@ -42,8 +42,8 @@ endef
 .PHONY: lib submodule
 
 
-init:
-	$(MAKE) -C $(LIBOPENCM3) TARGETS=$(TARGET_MCU) CFLAGS=$(OPTIMIZE)
+lib:
+	$(MAKE) -C $(LIBOPENCM3) TARGETS=$(TARGET_MCU) CFLAGS=$(OPTIMIZE) -j4
 
 MAKEFLAGS += --no-print-directory
 
