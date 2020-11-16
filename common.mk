@@ -23,18 +23,20 @@ cleanall:
 	$(MAKE) -C ../.. clean
 
 # Write to Flash
-
-#ST_PROGM_CLI_EXE=/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI
+#ifeq ($(OS),Windows_NT)
 ST_PROGM_CLI_EXE = "d:/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe"
+#else
+ST_PROGM_CLI_EXE=/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/STM32_Programmer_CLI
+#endif
+
 DEV_INFO = $(shell $(ST_PROGM_CLI_EXE) -c port=SWD | grep -i "device name")
 
 w: all
 ifneq (,$(findstring $(DEV_NAME), $(DEV_INFO)))
 	$(Q)@echo Device = $(DEV_NAME)
-	$(Q)$(ST_PROGM_CLI_EXE) -c port=SWD -d $(BUILD_DIR)/$(PROJECT).hex -Rst
+	$(Q)$(ST_PROGM_CLI_EXE) -c port=SWD -d $(BUILD_DIR)/$(PROJECT).hex -hardRst
 else
 	$(Q)@echo $(DEV_INFO)
 	$(Q)@echo Device = ???? $(DEV_NAME)
 endif
-
 
