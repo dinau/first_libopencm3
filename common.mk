@@ -29,7 +29,10 @@ ST_PROGM_CLI_EXE=/usr/local/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
 ST_PROGM_CLI_EXE = "d:/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe"
 #endif
 
+# check if exe file exists or not
+ifneq (,$(wildcard $(ST_PROGM_CLI_EXE)))
 DEV_INFO = $(shell $(ST_PROGM_CLI_EXE) -c port=SWD | grep -i "device name")
+endif
 
 w: all
 ifneq (,$(findstring $(DEV_NAME), $(DEV_INFO)))
